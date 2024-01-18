@@ -1,7 +1,7 @@
 rickmote
 ========
 
-##The Rickmote Controller: Hijack TVs using Google Chromecast
+## The Rickmote Controller: Hijack TVs using Google Chromecast
 ![The Rickmote Controller](docs/Rickmote.jpg)
 
 The Rickmote is a Python program for Hijacking Chromecasts and playing arbitrary video to their connected TVs. Full details on how the hack works will be provided at the talk "Rickrolling your Neighbors with Google Chromecast" at HOPE X in New York. See you there!
