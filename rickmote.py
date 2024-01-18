@@ -15,9 +15,7 @@ import json
 import pychromecast as pc
 
 #XXX Edit these two values
-WLAN0_BSSID = $(/sbin/ifconfig | grep $NIC | head -n 1 | awk '{ print $5 }')
-# MAC=$(ip link show "$NIC" | awk '/ether/ {print $2}') # If 'ifconfig' not present. #The wifi client
-
+WLAN0_BSSID = "YOUR_MAC_ADDRESS_HERE" #The wifi client
 WLAN2_BSSID = "YOUR_MAC_ADDRESS_HERE" #The wifi AP
 
 #XXX The YouTube video to play. Default is Rickroll. IE:
@@ -148,34 +146,9 @@ class RickcastWindow( Tk ):
         self.MainMenu()
         
     def ConnectToNetwork(self, network):
-
-        filename = "/etc/NetworkManager/system-connections/Chromecast"
-
-        f = open(filename, "w")
-
-        #make a new connection file 
-        connection = ("[connection]"
-        "\nid=Chromecast"
-        "\nuuid=170968e7-b2c2-4cf6-821b-bc9a8ba6de93"
-        "\ntype=802-11-wireless"
-        "\n"
-        "\n[802-11-wireless]"
-        "\nssid=" + network.SSID +
-        "\nmode=infrastructure"
-        "\nmac-address=" + WLAN0_BSSID +
-        "\n"
-        "\n[ipv6]"
-        "\nmethod=auto"
-        "\nip6-privacy=2"
-        "\n"
-        "\n[ipv4]"
-        "\nmethod=auto")
-
-        f.write(connection)
-        f.close()
-
-        os.system("nmcli con up id Chromecast iface wlan0")
-        
+        # Simply the command to use iw
+        os.system("iw dev wlan0 connect -w \"" + network.SSID + "\"")        
+	os.system("dhclient wlan0")
 
     def Rickroll(self, network):
         #Connect to the victim's network
@@ -202,7 +175,7 @@ class RickcastWindow( Tk ):
                     #First, set the routing correctly, since it's probably all screwed up
                     time.sleep(5)
                     #Disconnect from client wifi
-                    os.system("nmcli dev disconnect iface wlan0")
+                    os.system("iw dev wlan0 disconnect")
                     #Set routes to get out to the Internet
                     os.system("dhclient eth0")
                     self.PlayVideo()
@@ -216,7 +189,7 @@ class RickcastWindow( Tk ):
             "DEBUG: Not a Chromecast network. Detailed error -> " + str(e)
 
         #Disconnect from client wifi
-        os.system("nmcli dev disconnect iface wlan0")
+        os.system("iw dev wlan0 disconnect")
 
     def PlayVideo(self):
         cast = pc.PyChromecast()
@@ -289,4 +262,3 @@ if __name__ == '__main__':
     #XXX Uncomment this line to make the window fullscreen
     #demo.attributes('-fullscreen', True)
     demo.mainloop()
-
