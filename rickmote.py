@@ -15,7 +15,9 @@ import json
 import pychromecast as pc
 
 #XXX Edit these two values
-WLAN0_BSSID = "YOUR_MAC_ADDRESS_HERE" #The wifi client
+WLAN0_BSSID = $(/sbin/ifconfig | grep $NIC | head -n 1 | awk '{ print $5 }')
+# MAC=$(ip link show "$NIC" | awk '/ether/ {print $2}') # If 'ifconfig' not present. #The wifi client
+
 WLAN2_BSSID = "YOUR_MAC_ADDRESS_HERE" #The wifi AP
 
 #XXX The YouTube video to play. Default is Rickroll. IE:
