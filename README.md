@@ -18,6 +18,16 @@ Additionally, this is all streamlined into a Raspberry Pi (pictured above) with 
 ##### 3D Printed Case:
 Download the 3D models for the slick Rickmote 3D printed case here at Thingiverse
 http://www.thingiverse.com/thing:398100
+##### Hardware Recommended by Original Developer 
+###### *not me!*
+* [Raspberry Pi Model B Revision 2.0](https://www.amazon.com/Portable-Raspberry-Revision-Components-Electronic/dp/B00LJPJIGC/ref=sr_1_2?keywords=Raspberry+Pi+Model+B+Revision+2.0+%28512MB%29%29&sr=8-2)
+* [Samsung 32GB PRO SDHC](https://www.amazon.com/Samsung-Class-Adapter-MB-MD32GA-AM/dp/B07169Y2VP/ref=sr_1_4?keywords=Samsung+32GB+PRO+SDHC&sr=8-4) 
+* [2.8" Touchscreen Display for Raspberry Pi](https://www.adafruit.com/product/1601)
+* [AmazonBasics High-Speed HDMI Cable](https://www.amazon.com/AmazonBasics-High-Speed-HDMI-Cable-1-Pack/dp/B014I8SSD0/ref=sr_1_3?keywords=AmazonBasics%2BHigh-Speed%2BHDMI%2BCable%2B(6.5%2BFeet%2F2.0%2BMeters)&sr=8-3&th=1)
+* [Lithium Ion Polymer Battery - 3.7v 2500mAh](https://www.adafruit.com/product/328)
+* [Motorola Micro USB Charger (5V, 850mA) Model: SPN5504](https://www.amazon.com/Motorola-SPN5504-Original-Charger-Detachable/dp/B007BYEY0K/ref=sr_1_4?keywords=Motorola+Micro+USB+Charger+%285V%2C+850mA%29+Model%3A+SPN5504&sr=8-4)
+
+
 
 ##### Setup Assumptions:
 The Rickmote Controller needs to pull a lot of Wi-Fi shenanigans in order to automate the hack. For best results, you may want to try using Kali Linux as it has the easiest setup for wireless drivers that support injection. Also note that we are actively working on reducing these assumptions! Sorry it's so specific in the meantime.
@@ -38,13 +48,13 @@ For more information, [try here](https://www.youtube.com/watch?v=dQw4w9WgXcQ).
 #### Notes (CY)
 How the procedures work for Hijacking Chromecast:
 _______________________________________
-Step 1: Deauth the STA connectivity of Chromecast to the WiFi AP. 
+* 1: Deauth the STA connectivity of Chromecast to the WiFi AP. 
 ________________________________________
-Step 2: Connect to the AP mode of Chromecast, usually set as "Network Name"
+* 2: Connect to the AP mode of Chromecast, usually set as "Network Name"
 __________________________________________
-Step 3: HTTP POST to set the Chromecast to the AP setup for hijacking purpose
+* 3: HTTP POST to set the Chromecast to the AP setup for hijacking purpose
 __________________________________________
-Step 4: Find Chromecast using upnp protocol using multicast address (not working certain times) 
+* 4: Find Chromecast using upnp protocol using multicast address (not working certain times) 
 __________________________________________
-Step 5: Enable the Youtube apps
+* 5: Enable the Youtube apps
 _________________________________________
