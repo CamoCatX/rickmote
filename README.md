@@ -44,6 +44,7 @@ The Rickmote Controller needs to pull a lot of Wi-Fi shenanigans in order to aut
 
 #### More Information
 For more information, [try here](https://www.youtube.com/watch?v=dQw4w9WgXcQ).
+#### TODO: Create docker container for access without raspberry
 
 #### Notes (CY)
 How the procedures work for Hijacking Chromecast:
